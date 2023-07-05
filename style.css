@@ -1,6 +1,7 @@
-.container {
-  display: inline-block;
-  cursor: pointer;
+header {
+  display: grid;
+  grid-template-areas: 
+  "a a a a a b";
 }
 
 .bar1, .bar2, .bar3 {
@@ -19,4 +20,12 @@
 
 .change .bar3 {
   transform: translate(0, -11px) rotate(45deg);
+}
+
+h1 {
+  grid-area: "a";
+}
+
+.hamburger {
+  grid-area: "b";
 }

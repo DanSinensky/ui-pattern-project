@@ -53,8 +53,8 @@ randomButton.addEventListener("click", e => {
 function displayUI(country) {
   let html = `
       <div class="country">
-        <h1>${country.name.common} ${country.flag}</h1>
-        <h2>${country.name.official}</h2>
+        <h2>${country.name.common} ${country.flag}</h2>
+        <h3>${country.name.official}</h3>
         <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
         <p>${country.capital}</p>
         <p>${country.borders}</p>
