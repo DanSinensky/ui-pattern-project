@@ -1,7 +1,9 @@
 const baseUrl = "https://restcountries.com/v3.1"
 const form = document.querySelector("form")
-const button = document.querySelector("button")
+const randomButton = document.querySelector(".random-button")
 const name = document.querySelector(".name")
+const main = document.querySelector("main")
+const hamburger = document.querySelector(".hamburger")
 
 class Country {
   constructor(flagIcon, officialName, commonName, capital, borders, continents, subregion, flags, languages) {
@@ -17,10 +19,6 @@ class Country {
   }
 }
 
-const populate = (name) => {
-  const country = new Country(name.flag, name.name.official, name.name.common, name.capital, name.borders, name.continents, name.subregion, name.flags.png, name.languages)
-}
-
 form.addEventListener("submit", e => {
   e.preventDefault()
   fetch(`${baseUrl}/name/${e.target.elements.country.value}`)
@@ -28,29 +26,45 @@ form.addEventListener("submit", e => {
     console.log("success", res)
     return res.json()
   })
-  .then(data => {
-    console.log(data[0])
-    const country = data[0]
-    populate(country)
-  })
+    .then(data => {
+      const country = data[0]
+      displayUI(country)
+    })
   .catch(error => {
     console.error("Something went wrong...", error)
   })
 })
 
-button.addEventListener("click", e => {
+randomButton.addEventListener("click", e => {
   fetch(`${baseUrl}/all`)
   .then(res => {
     console.log("success", res)
     return res.json()
   })
   .then(data => {
-    console.log(data)
     const country = data[Math.floor(Math.random()*data.length)]
-    console.log(country)
-    populate(country)
+    displayUI(country)
   })
   .catch(error => {
     console.error("Something went wrong...", error)
   })
+})
+
+function displayUI(country) {
+  let html = `
+      <div class="country">
+        <h1>${country.name.common} ${country.flag}</h1>
+        <h2>${country.name.official}</h2>
+        <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
+        <p>${country.capital}</p>
+        <p>${country.borders}</p>
+        <p>${country.continents}</p>
+        <p>${country.subregion}</p>
+      </div>`
+
+      main.insertAdjacentHTML("beforeend", html)
+}
+  
+hamburger.addEventListener("click", e => {
+  e.target.classList.toggle("change");
 })
