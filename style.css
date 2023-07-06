@@ -1,7 +1,12 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
 body {
   display: grid;
   grid-template-columns: repeat(20, 5%);
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, 20%);
   background-image: url(./World_location_map_\(equirectangular_180\).svg.png);
   background-repeat: repeat;
 }
@@ -14,6 +19,12 @@ main {
 aside {
   grid-row: 2/span 4;
   grid-column: 19/ span 2;
+  transition: 0.6s;
+  padding: 1px;
+}
+
+.hidden {
+  transform: translateX(100%);
 }
 
 section {
@@ -22,7 +33,7 @@ section {
   border: 1px solid black;
   background-color: #aaa;
   text-align: center;
-  height: 100%;
+  height: fit-content;
 }
 
 .bar1, .bar2, .bar3 {
@@ -63,17 +74,10 @@ h1 {
   margin-right: 0;
 }
 
-.hidden {
-  display: none;
-}
-
 .flags {
   font-size: 2em;
-  grid-row: 1/ span 1;
-  grid-column: 2/ span 10;
-  height: 2em;
-  width: 50%;
   overflow: scroll;
+  max-height: 10em;
 }
 
 .flag-icon {
@@ -81,5 +85,5 @@ h1 {
 }
 
 img {
-  max-height: 10em;
+  height: 15em;
 }

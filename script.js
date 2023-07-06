@@ -15,37 +15,34 @@ const borders = document.querySelector(".borders")
 const subregion = document.querySelector(".subregion")
 const flagArray = []
 const flag = document.querySelector(".flag")
+const countryArray = []
+
+fetch(`${baseUrl}/all`)
+  .then(res => {
+    console.log("success", res)
+    return res.json()
+  })
+  .then(data => {
+    data.forEach(country => {
+      countryArray.push(country)
+    })
+  })
+  .catch(error => {
+    console.error("Something went wrong...", error)
+  })
 
 form.addEventListener("submit", e => {
   e.preventDefault()
-  fetch(`${baseUrl}/name/${e.target.elements.country.value}`)
-    .then(res => {
-      console.log("success", res)
-      return res.json()
-    })
-    .then(data => {
-      const country = data[0]
+  countryArray.forEach(country => {
+    if (country.name.common === e.target.elements.country.value) {
       displayUI(country)
-    })
-    .catch(error => {
-      console.error("Something went wrong...", error)
-    })
+    }
+  })
   e.target.elements.country.value = ""
 })
 
 randomButton.addEventListener("click", e => {
-  fetch(`${baseUrl}/all`)
-    .then(res => {
-      console.log("success", res)
-      return res.json()
-    })
-    .then(data => {
-      const country = data[Math.floor(Math.random() * data.length)]
-      displayUI(country)
-    })
-    .catch(error => {
-      console.error("Something went wrong...", error)
-    })
+  displayUI(countryArray[Math.floor(Math.random() * countryArray.length)])
 })
 
 function displayUI(country) {
@@ -72,19 +69,8 @@ function displayUI(country) {
     flagArray.push(country.flag)
   }
   flag.addEventListener("click", e => {
-    fetch(`${baseUrl}/name/${flag.dataset.commonName}`)
-    .then(res => {
-      console.log("success", res)
-      return res.json()
-    })
-    .then(data => {
-      const country = data[0]
       print(country)
     })
-    .catch(error => {
-      console.error("Something went wrong...", error)
-    })
-  })
 }
 
 bars.forEach(bar => {

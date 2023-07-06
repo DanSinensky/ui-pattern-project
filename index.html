@@ -11,18 +11,17 @@
 <body>
   <header>
     <h1>Hamburger/Slideshow Menu Wireframe</h1>
-    <nav class="flags"></nav>
-    <div class="hamburger">
+    <div class="hamburger change">
       <div class="bar1 bar"></div>
       <div class="bar2 bar"></div>
       <div class="bar3 bar"></div>
     </div>
   </header>
-  <aside class="hidden">
+  <aside class="shown">
     <form class="search">
       <div class="search">
         <label for="country">Get Info About Country: </label>
-        <input  type="text" name="country" id="country" placeholder="Country name" required>
+        <input type="text" name="country" id="country" placeholder="Country name" size="15" required>
       </div>
       <div class="search">
         <input type="submit" value="Search">
@@ -32,14 +31,15 @@
       <p>Get Info About Random Country:</p>
       <button class="random-button">Randomize</button>
     </div>
+    <nav class="flags"></nav>
   </aside>
   <section>
     <h2>Name: <span class="common"></span></h2>
     <h3>Official Name: <span class="official"></span></h3>
-    <div class="flag"><img src="" alt=""></div>
     <p>Capital: <span class="capital"></span></p>
     <p>Borders: <span class="borders"></span></p>
     <p>Region: <span class="subregion"></span></p>
+    <div class="flag"><img src="" alt=""></div>
   </section>
 </body>
 </html>
