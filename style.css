@@ -81,7 +81,6 @@ h1 {
   font-size: 2em;
   overflow: scroll;
   max-height: 10em;
-  max-width: 2em;
   margin: 0.125em;
 }
 
@@ -116,6 +115,10 @@ h1, h2, h3 {
     grid-row: 3/span 3;
     grid-column: 1/span 20;
   }
+
+  .flags {
+    max-width: 2em;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -127,5 +130,9 @@ h1, h2, h3 {
   section {
     grid-row: 3/span 3;
     grid-column: 1/span 20;
+  }
+
+  .flags {
+    max-width: 2em;
   }
 }
