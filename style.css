@@ -1,6 +1,7 @@
 html, body {
   margin: 0;
   height: 100%;
+  font-family: "Lato", sans-serif;
 }
 
 body {
@@ -21,6 +22,8 @@ aside {
   grid-column: 19/ span 2;
   transition: 0.6s;
   padding: 1px;
+  border: 1px solid black;
+  background-color: #aaa;
 }
 
 .hidden {
@@ -78,6 +81,7 @@ h1 {
   font-size: 2em;
   overflow: scroll;
   max-height: 10em;
+  margin: 0.125em;
 }
 
 .flag-icon {
@@ -86,4 +90,12 @@ h1 {
 
 img {
   height: 15em;
+}
+
+.random p {
+  margin: 0;
+}
+
+.random {
+  margin-top: 1em;
 }
