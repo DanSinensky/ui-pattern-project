@@ -34,7 +34,7 @@ fetch(`${baseUrl}/all`)
 form.addEventListener("submit", e => {
   e.preventDefault()
   countryArray.forEach(country => {
-    if (country.name.common === e.target.elements.country.value) {
+    if (country.name.common === e.target.elements.country.value.charAt(0).toUpperCase() + e.target.elements.country.value.slice(1)) {
       displayUI(country)
     }
   })
