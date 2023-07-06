@@ -90,6 +90,7 @@ h1 {
 
 img {
   height: 15em;
+  max-width: 100%;
 }
 
 .random p {
