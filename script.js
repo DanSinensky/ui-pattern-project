@@ -14,6 +14,7 @@ const capital = document.querySelector(".capital")
 const borders = document.querySelector(".borders")
 const subregion = document.querySelector(".subregion")
 const flagArray = []
+const flag = document.querySelector(".flag")
 
 form.addEventListener("submit", e => {
   e.preventDefault()
