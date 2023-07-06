@@ -6,6 +6,7 @@ const main = document.querySelector("main")
 const bars = document.querySelectorAll(".bar")
 const hamburger = document.querySelector(".hamburger")
 const aside = document.querySelector("aside")
+const flags = document.querySelector(".flags")
 
 class Country {
   constructor(flagIcon, officialName, commonName, capital, borders, continents, subregion, flags, languages) {
@@ -56,7 +57,7 @@ randomButton.addEventListener("click", e => {
 function displayUI(country) {
   let html = `
       <div class="country">
-        <h2>${country.name.common} ${country.flag}</h2>
+        <h2>${country.name.common}</h2>
         <h3>${country.name.official}</h3>
         <img src="${country.flags.png}" alt="Flag of ${country.name.common}">
         <p>${country.capital}</p>
@@ -65,7 +66,10 @@ function displayUI(country) {
         <p>${country.subregion}</p>
       </div>`
 
-      main.insertAdjacentHTML("beforeend", html)
+  main.insertAdjacentHTML("afterBegin", html)
+  
+  let flag = `${country.flag}`
+  flags.innerText = flag + flags.innerText
 }
 
 bars.forEach(bar => {

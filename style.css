@@ -53,3 +53,7 @@ h1 {
 .hidden {
   display: none;
 }
+
+.flags {
+  font-size: 1.5rem;
+}
