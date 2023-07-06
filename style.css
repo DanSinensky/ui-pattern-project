@@ -1,7 +1,9 @@
 body {
   display: grid;
   grid-template-columns: repeat(20, 5%);
-  grid-template-rows: 3rem 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  background-image: url(./World_location_map_\(equirectangular_180\).svg.png);
+  background-repeat: repeat;
 }
 
 main {
@@ -17,6 +19,10 @@ aside {
 section {
   grid-row: 2/span 3;
   grid-column: 6/span 10;
+  border: 1px solid black;
+  background-color: #aaa;
+  text-align: center;
+  height: 100%;
 }
 
 .bar1, .bar2, .bar3 {
